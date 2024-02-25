@@ -40,6 +40,7 @@ public class Employee extends BaseEntity {
     @JsonIgnore
     private Store store;
 
+    public Employee(){}
     public Employee(Long id, Boolean status, LocalDateTime createdAt, LocalDateTime updatedAt, Long createdBy, Long updatedBy, String name, Date birthday, String gender, String phoneNumber, String email, String address, String experience, Store store) {
         super(id, status, createdAt, updatedAt, createdBy, updatedBy);
         this.name = name;

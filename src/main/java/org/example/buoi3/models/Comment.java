@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 public class Comment extends BaseEntity {
 
 
-
     @Column(name = "content")
     private String content;
 
@@ -32,6 +31,7 @@ public class Comment extends BaseEntity {
     @JsonIgnore
     private Store store;
 
+    public Comment(){}
     public Comment(Long id, Boolean status, LocalDateTime createdAt, LocalDateTime updatedAt, Long createdBy, Long updatedBy, String content, Customer customer, Store store) {
         super(id, status, createdAt, updatedAt, createdBy, updatedBy);
         this.content = content;
