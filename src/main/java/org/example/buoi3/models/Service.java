@@ -24,6 +24,8 @@ public class Service extends BaseEntity {
     @JsonIgnore
     private List<StoreService> storeServices;
 
+    public Service(){}
+
     public Service(Long id, Boolean status, LocalDateTime createdAt, LocalDateTime updatedAt, Long createdBy, Long updatedBy, String name, List<StoreService> storeServices) {
         super(id, status, createdAt, updatedAt, createdBy, updatedBy);
         this.name = name;

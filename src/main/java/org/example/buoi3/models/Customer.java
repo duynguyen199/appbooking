@@ -44,6 +44,8 @@ public class Customer extends BaseEntity {
     @JsonIgnore
     private List<Comment> comments;
 
+    public Customer(){}
+
     public Customer(Long id, Boolean status, LocalDateTime createdAt, LocalDateTime updatedAt, Long createdBy, Long updatedBy, String name, String phoneNumber, String address, Date birthday, String email, String gender, String password, List<Comment> comments) {
         super(id, status, createdAt, updatedAt, createdBy, updatedBy);
         this.name = name;

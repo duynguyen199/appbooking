@@ -37,6 +37,8 @@ public class Store extends BaseEntity {
     @JsonIgnore
     private List<Employee> employees;
 
+    public Store(){}
+
     public String getName() {
         return name;
     }
