@@ -1,11 +1,9 @@
 package org.example.buoi3.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.example.buoi3.models.base.BaseEntity;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -24,6 +22,7 @@ public class User extends BaseEntity {
 
 
     @ManyToMany(mappedBy = "users")
+    @JsonIgnore
     private List<Role> roles;
 
     public User() {
@@ -35,6 +34,12 @@ public class User extends BaseEntity {
         this.username = username;
         this.password = password;
         this.roles = roles;
+    }
+
+    public User(String name, String username, String password) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
     }
 
     public User(String name, String username, String password, List<Role> roles) {

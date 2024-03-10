@@ -1,21 +1,24 @@
 package org.example.buoi3.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
-import lombok.Builder;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.example.buoi3.models.base.BaseEntity;
 
-import java.time.LocalDateTime;
+import javax.persistence.*;
 import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "role")
 @Entity
 public class Role extends BaseEntity {
 
-
+    @Column(name = "name")
     private String name;
 
     @ManyToMany
@@ -23,28 +26,7 @@ public class Role extends BaseEntity {
     @JsonIgnore
     private List<User> users;
 
-    public Role() {
-    }
-
-    public Role(Long id, Boolean status, LocalDateTime createdAt, LocalDateTime updatedAt, Long createdBy, Long updatedBy, String name, List<User> users) {
-        super(id, status, createdAt, updatedAt, createdBy, updatedBy);
+    public Role(String name) {
         this.name = name;
-        this.users = users;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
     }
 }

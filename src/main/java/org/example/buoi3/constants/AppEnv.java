@@ -12,10 +12,10 @@ public class AppEnv {
     public void setSecretKey(String secretKey){
         AppEnv.secretKey = secretKey;
     }
-    public static Integer timeExpiration;
+    public static Long timeExpiration;
 
     @Value("${time.expiration}")
-    public void setTimeExpiration(Integer timeExpiration){
+    public void setTimeExpiration(Long timeExpiration){
         AppEnv.timeExpiration = timeExpiration;
     }
 }

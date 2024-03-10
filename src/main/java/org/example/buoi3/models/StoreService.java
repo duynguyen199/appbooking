@@ -1,15 +1,11 @@
 package org.example.buoi3.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.example.buoi3.models.base.BaseEntity;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.*;
 @Entity
 @Table(name = "store_service")
 

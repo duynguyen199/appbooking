@@ -5,6 +5,7 @@ import org.example.buoi3.outputs.StoreDataOutput;
 import org.example.buoi3.services.StoreService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/store")
-public class StoreController {
+public class  StoreController {
 
     private final StoreService storeService;
 
@@ -23,6 +24,7 @@ public class StoreController {
     }
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     public ResponseEntity<?> getAllStoreList(){
         List<StoreDataOutput> listStore= storeService.getAllStores();
         return ResponseEntity.ok(listStore);
