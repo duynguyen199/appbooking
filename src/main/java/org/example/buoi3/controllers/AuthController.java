@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 @RequestMapping("/auth")
 @RestController
 public class AuthController {
@@ -19,8 +21,12 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signUp(@RequestBody UserDataInput userDataInput){
-        return ResponseEntity.ok(authService.signup(userDataInput));
+    public ResponseEntity<?> signUp(UserDataInput userDataInput){
+        try {
+            return ResponseEntity.ok(authService.signup(userDataInput));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthenticationRequest request){

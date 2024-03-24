@@ -20,10 +20,15 @@ public class User extends BaseEntity {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "avatar")
+    private String avatar;
 
     @ManyToMany(mappedBy = "users")
     @JsonIgnore
     private List<Role> roles;
+    
+    @OneToMany(mappedBy = "user")
+    private List<Images> images;
 
     public User() {
     }
@@ -48,7 +53,31 @@ public class User extends BaseEntity {
         this.password = password;
         this.roles = roles;
     }
-
+    
+    public User(String name, String username, String password, String avatar, List<Role> roles) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.avatar = avatar;
+        this.roles = roles;
+    }
+    
+    public List<Images> getImages() {
+        return images;
+    }
+    
+    public void setImages(List<Images> images) {
+        this.images = images;
+    }
+    
+    public String getAvatar() {
+        return avatar;
+    }
+    
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+    
     public String getName() {
         return name;
     }
